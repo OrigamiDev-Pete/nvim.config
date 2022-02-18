@@ -1,24 +1,3 @@
--- line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.numberwidth = 2
-
--- tabs
-vim.opt.autoindent = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.smarttab = true
-vim.opt.softtabstop = 4
-
--- colours
-vim.opt.background = 'light'
-
-vim.opt.scrolloff = 8
-
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Keymaps
 local function keymap(mode, keys, command, opts)
 	vim.api.nvim_set_keymap(mode, keys, command, opts)
 end
@@ -35,4 +14,3 @@ keymap('n', '<c-l>', '<c-w><c-l>', {noremap = true})
 keymap('n', '<c-h>', '<c-w><c-h>', {noremap = true})
 keymap('n', '<c-j>', '<c-w><c-j>', {noremap = true})
 keymap('n', '<c-k>', '<c-w><c-k>', {noremap = true})
-
