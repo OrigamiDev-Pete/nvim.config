@@ -6,7 +6,8 @@ vim.g.mapleader = ' '
 
 keymap('n', '<c-_>', '<cmd>lua require\'commentor\'.comment()<CR>', {noremap = true})
 -- Telescope
-keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>', {noremap = true})
+--keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>', {noremap = true})
+keymap('n', '<c-p>', '<cmd>lua require("telescope.builtin").find_files()<CR>', {noremap = true})
 keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<CR>', {noremap = true})
 keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>', {noremap = true})
 
