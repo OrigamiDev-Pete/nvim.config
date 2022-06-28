@@ -34,27 +34,36 @@ end
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
+  --debounce_text_changes = 150,
 }
-require('lspconfig')['pyright'].setup{
+require'lspconfig'.pyright.setup {
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['tsserver'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
+require'lspconfig'.ols.setup {
+	on_attach = on_attach,
+	flags = lsp_flags,
+	--cmd
 }
-require('lspconfig')['rust_analyzer'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-      ["rust-analyzer"] = {}
-    }
+require 'lspconfig'.sumneko_lua.setup {
+	on_attach = on_attach,
+	settings = {
+		Lua = {
+			runtime = {
+				version = 'LuaJIT',
+			},
+			diagnostics = {
+				globals = {'vim'},
+			},
+			workplace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			telemtry = {
+				enable = false,
+			},
+		},
+	},
 }
 
--- LSPs
+vim.diagnostic.config({update_in_insert = true })
 
-require('lspconfig').pyright.setup{
-	on_attach = on_attach
-}

@@ -32,7 +32,7 @@ require'plugins'
 require'keymaps'
 require'lsp'
 require'nvim-cmp-config'
-vim.cmd[[colorscheme nord]]
+vim.cmd'colorscheme material'
 require'lualine'.setup {
 	options = {
 		theme = 'auto'
@@ -44,6 +44,6 @@ require'nvim-treesitter.configs'.setup {
 	sync_install = false,
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = false,
+		additional_vim_regex_highlighting = true,
 	},
 }

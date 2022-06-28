@@ -14,4 +14,8 @@ keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>',
 keymap('n', '<c-l>', '<c-w><c-l>', {noremap = true})
 keymap('n', '<c-h>', '<c-w><c-h>', {noremap = true})
 keymap('n', '<c-j>', '<c-w><c-j>', {noremap = true})
-keymap('n', '<c-k>', '<c-w><c-k>', {noremap = true})
+--keymap('n', '<c-k>', '<c-w><c-k>', {noremap = true})
+keymap('n', '<c-k>', '<cmd>echo "test"<CR>', {noremap = true})
+
+keymap('n', '<leader>`', '<cmd>vsplit | vertical resize 80 | terminal<CR>', {noremap = true})
+

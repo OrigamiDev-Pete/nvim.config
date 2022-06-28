@@ -1,5 +1,12 @@
 local fn = vim.fn
 
+vim.cmd([[
+	augroup packer_user_config
+		autocmd!
+		autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+	augroup end
+]])
+
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -36,10 +43,8 @@ return require('packer').startup(function()
 	use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
 	use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
+	use 'marko-cerovac/material.nvim' -- Material Colorscheme
 	use 'shaunsingh/nord.nvim' -- Nord Colorscheme
 	use 'mofiqul/dracula.nvim' -- Dracula Colorscheme
 end)
-
--- Telescope setup
---require('telescope').setup{}
 
