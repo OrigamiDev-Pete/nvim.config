@@ -18,4 +18,5 @@ keymap('n', '<c-j>', '<c-w><c-j>', {noremap = true})
 keymap('n', '<c-k>', '<cmd>echo "test"<CR>', {noremap = true})
 
 keymap('n', '<leader>`', '<cmd>vsplit | vertical resize 80 | terminal<CR>', {noremap = true})
+keymap('n', '<c-b>', '<cmd>NvimTreeToggle<CR>', {noremap = true})
 

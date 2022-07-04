@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
@@ -32,18 +32,18 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  --debounce_text_changes = 150,
-}
+local util = require'lspconfig'.util
+
 require'lspconfig'.pyright.setup {
     on_attach = on_attach,
-    flags = lsp_flags,
 }
 require'lspconfig'.ols.setup {
 	on_attach = on_attach,
-	flags = lsp_flags,
-	--cmd
+	root_directory = util.root_pattern('ols.json')
+
+}
+require'lspconfig'.zls.setup {
+	on_attach = on_attach,
 }
 require 'lspconfig'.sumneko_lua.setup {
 	on_attach = on_attach,
