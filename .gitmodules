@@ -1,0 +1,12 @@
+[submodule "language_servers/zls"]
+	path = language_servers/zls
+	url = https://github.com/zigtools/zls.git
+[submodule "language_servers/ols"]
+	path = language_servers/ols
+	url = https://github.com/DanielGavin/ols.git
+[submodule "language_servers/lua_language_server"]
+	path = language_servers/lua_language_server
+	url = https://github.com/sumneko/lua-language-server.git
+[submodule "language_servers/lua-language-server"]
+	path = language_servers/lua-language-server
+	url = https://github.com/sumneko/lua-language-server.git
