@@ -34,6 +34,8 @@ end
 
 local util = require'lspconfig'.util
 
+require'nvim-lsp-installer'.setup {}
+
 require'lspconfig'.pyright.setup {
     on_attach = on_attach,
 }
@@ -63,6 +65,9 @@ require 'lspconfig'.sumneko_lua.setup {
 			},
 		},
 	},
+}
+require'lspconfig'.tsserver.setup {
+	on_attach = on_attach,
 }
 
 vim.diagnostic.config({update_in_insert = true })

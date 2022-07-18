@@ -24,7 +24,10 @@ end
 
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim' -- Package manager
-	use 'neovim/nvim-lspconfig' -- Collection of configs for LSP
+	use {
+		'williamboman/nvim-lsp-installer',
+		'neovim/nvim-lspconfig', -- Collection of configs for LSP
+	}
 	use { -- Treesitter
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
@@ -54,5 +57,6 @@ return require('packer').startup(function()
 	use 'marko-cerovac/material.nvim' -- Material Colorscheme
 	use 'shaunsingh/nord.nvim' -- Nord Colorscheme
 	use 'mofiqul/dracula.nvim' -- Dracula Colorscheme
+	use 'tpope/vim-surround'
 end)
 
