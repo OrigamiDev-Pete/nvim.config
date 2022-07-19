@@ -28,6 +28,7 @@ vim.opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+require'autocmd'
 require'plugins'
 require'keymaps'
 require'lsp'
