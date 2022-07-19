@@ -56,6 +56,12 @@ return require('packer').startup(function()
 				require'alpha'.setup(require'alpha.themes.startify'.config)
 			end
 	}
+	use {
+		'folke/which-key.nvim',
+		config = function ()
+			require'which-key'.setup {}
+		end
+	}
 
 
 use 'ziglang/zig.vim' -- Zig
