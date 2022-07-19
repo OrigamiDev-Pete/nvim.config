@@ -20,4 +20,4 @@ keymap('n', '<leader>`', '<cmd>vsplit | vertical resize 80 | terminal<CR>', {nor
 keymap('t', '<leader>`', [[<c-\><c-n><cmd>q<CR>]], {noremap = true})
 keymap('n', '<c-b>', '<cmd>NvimTreeToggle<CR>', {noremap = true})
 
-
+keymap('n', '<leader>cd', '<cmd>cd %:h<CR>', {noremap = true})

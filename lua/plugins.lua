@@ -49,7 +49,16 @@ return require('packer').startup(function()
 			'kyazdani42/nvim-web-devicons', -- optional, for file icons
 		},
 	}
-	use 'ziglang/zig.vim' -- Zig
+	use { -- Launcher
+		'goolord/alpha-nvim',
+			requires = { 'kyazdani42/nvim-web-devicons' },
+			config = function ()
+				require'alpha'.setup(require'alpha.themes.startify'.config)
+			end
+	}
+
+
+use 'ziglang/zig.vim' -- Zig
 
 	-- autocomplete
 	use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
@@ -63,7 +72,7 @@ return require('packer').startup(function()
 
 	-- Git
 	use 'lewis6991/gitsigns.nvim' -- Add git gutter
-	use 'f-person/git-blame.nvim' -- Git blame virtual text
+	--use 'f-person/git-blame.nvim' -- Git blame virtual text
 	use { -- Magit
 		'TimUntersberger/neogit',
 		requires = 'nvim-lua/plenary.nvim'
