@@ -22,6 +22,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
+require'gitsigns'.setup {}
+require'neogit'.setup {}
+
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim' -- Package manager
 	use {
@@ -57,6 +60,15 @@ return require('packer').startup(function()
 	use 'marko-cerovac/material.nvim' -- Material Colorscheme
 	use 'shaunsingh/nord.nvim' -- Nord Colorscheme
 	use 'mofiqul/dracula.nvim' -- Dracula Colorscheme
+
+	-- Git
+	use 'lewis6991/gitsigns.nvim' -- Add git gutter
+	use 'f-person/git-blame.nvim' -- Git blame virtual text
+	use { -- Magit
+		'TimUntersberger/neogit',
+		requires = 'nvim-lua/plenary.nvim'
+	}
+
 	use 'tpope/vim-surround'
 end)
 
