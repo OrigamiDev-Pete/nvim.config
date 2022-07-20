@@ -28,9 +28,10 @@ vim.opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+require'globals'
 require'autocmd'
-require'plugins'
 require'keymaps'
+require'plugins'
 require'lsp'
 require'nvim-cmp-config'
 vim.cmd'colorscheme material'

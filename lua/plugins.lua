@@ -64,7 +64,8 @@ return require('packer').startup(function()
 	}
 
 
-use 'ziglang/zig.vim' -- Zig
+	use 'ziglang/zig.vim' -- Zig
+	use 'tjdevries/nlua.nvim'
 
 	-- autocomplete
 	use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
@@ -85,5 +86,11 @@ use 'ziglang/zig.vim' -- Zig
 	}
 
 	use 'tpope/vim-surround'
+	use {
+		 'numToStr/Comment.nvim',
+		 config = function()
+			 require('Comment').setup()
+		end
+	}
 end)
 
