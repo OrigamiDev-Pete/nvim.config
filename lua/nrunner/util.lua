@@ -17,10 +17,16 @@ M.locate_runner = function ()
 end
 
 M.get_run_options = function (path)
+	-- Handle vscode launch files
+	if vim.fn.match(path, 'vscode') ~= -1 then
+		return M.get_run_options_vs(path)
+	end
+
 	if vim.endswith(path, '.lua') then
-		-- config.run_options = require(path)
 		local f = loadfile(path)
-		config.run_options = f()
+		if f then
+			config.run_options = f()
+		end
 	else
 		local file = vim.fn.readfile(path)
 		config.run_options = vim.fn.json_decode(file)
@@ -30,18 +36,18 @@ end
 M.get_run_options_vs = function (path)
 	local file = vim.fn.readfile(path)
 	local uncommented_file = {} -- remove // comments from json
-	for index, value in ipairs(file) do
+	for _, value in ipairs(file) do
 		if vim.fn.match(value, '//') == -1 then
 			table.insert(uncommented_file, value)
 		end
 	end
-	vs_data = vim.fn.json_decode(uncommented_file)
-	P(vs_data)
-	print(vs_data.configurations[1].program)
+	local vs_data = vim.fn.json_decode(uncommented_file)
+	local vs_command = vs_data.configurations[1].program
+	config.options.run_options.command = vim.fn.substitute(vs_command, [[${workspaceRoot}]], vim.fn.escape(config.options.root_dir, '\\'), 'g')
 end
 
 M.generate_runner = function ()
-	
+
 end
 
 return M
