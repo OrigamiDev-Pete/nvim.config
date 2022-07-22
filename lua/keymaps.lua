@@ -12,7 +12,7 @@ keymap.set('n', '<leader>ff', function() require("telescope.builtin").find_files
 keymap.set('n', '<c-p>', function() require("telescope.builtin").find_files() end)
 keymap.set('n', '<leader>fg', function() require("telescope.builtin").live_grep() end)
 keymap.set('n', '<leader>fb', function() require("telescope.builtin").buffers() end)
- 
+
 keymap.set('n', '<c-l>', '<c-w><c-l>')
 keymap.set('n', '<c-h>', '<c-w><c-h>')
 keymap.set('n', '<c-j>', '<c-w><c-j>')
