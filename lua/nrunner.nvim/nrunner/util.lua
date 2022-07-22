@@ -10,10 +10,11 @@ M.locate_runner = function ()
 		end
 	end
 	if config.options.use_vscode_files then
-		if vim.fn.filereadable(root_dir..'\\.vscode\\launch.json') then
+		if vim.fn.filereadable(root_dir..'\\.vscode\\launch.json') ~= 0 then
 			return root_dir..'\\.vscode\\launch.json'
 		end
 	end
+	return nil
 end
 
 M.get_run_options = function (path)
@@ -25,7 +26,7 @@ M.get_run_options = function (path)
 	if vim.endswith(path, '.lua') then
 		local f = loadfile(path)
 		if f then
-			config.run_options = f()
+			config.run_options = vim.tbl_deep_extend("force", {}, config.run_options, f())
 		end
 	else
 		local file = vim.fn.readfile(path)
@@ -43,7 +44,7 @@ M.get_run_options_vs = function (path)
 	end
 	local vs_data = vim.fn.json_decode(uncommented_file)
 	local vs_command = vs_data.configurations[1].program
-	config.options.run_options.command = vim.fn.substitute(vs_command, [[${workspaceRoot}]], vim.fn.escape(config.options.root_dir, '\\'), 'g')
+	config.run_options.command = vim.fn.substitute(vs_command, [[${workspaceRoot}]], vim.fn.escape(config.options.root_dir, '\\'), 'g')
 end
 
 M.generate_runner = function ()

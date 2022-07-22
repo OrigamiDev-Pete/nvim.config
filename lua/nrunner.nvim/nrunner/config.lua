@@ -24,20 +24,21 @@ local defaults = {
 	default_runner_files = { 'nrun.json', 'nrun.lua', 'nrunner.json', 'nrunner.lua' },
 	runner_path = nil,
 	use_vscode_files = true,
+	use_keymaps = true,
 	root_dir = vim.fn.getcwd(),
 	generate_default_run_command = true,
-	run_options = {
-		command = nil,
-		terminal = 'float',
-	},
 }
 
 M.options = {}
+M.run_options = {
+	command = nil,
+	terminal = 'float',
+}
 
 M.setup = function (opts)
 	M.options = vim.tbl_deep_extend("force", {}, defaults, opts or {})
 	if M.options.generate_default_run_command then
-		M.options.run_options.command = set_default_command_from_filetype()
+		M.run_options.command = set_default_command_from_filetype()
 	end
 	return M
 end
