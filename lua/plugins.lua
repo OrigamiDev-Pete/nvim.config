@@ -24,9 +24,11 @@ end
 
 require'gitsigns'.setup {}
 require'neogit'.setup {}
+require'nrunner'.setup {}
 
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim' -- Package manager
+	use 'OrigamiDev-Pete/nrunner.nvim' -- My NRunner plugin
 	use {
 		'williamboman/nvim-lsp-installer',
 		'neovim/nvim-lspconfig', -- Collection of configs for LSP
@@ -65,7 +67,7 @@ return require('packer').startup(function()
 
 
 	use 'ziglang/zig.vim' -- Zig
-	use 'tjdevries/nlua.nvim'
+	-- use 'tjdevries/nlua.nvim'
 
 	-- autocomplete
 	use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
