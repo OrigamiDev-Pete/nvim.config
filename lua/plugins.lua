@@ -24,7 +24,6 @@ end
 
 require'gitsigns'.setup {}
 require'neogit'.setup {}
-require'nrunner'.setup {}
 
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim' -- Package manager

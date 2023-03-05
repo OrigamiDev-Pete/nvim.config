@@ -19,7 +19,7 @@ vim.opt.softtabstop = 4
 
 -- colours
 vim.opt.background = 'dark'
-vim.opt.termguicolors = true
+--vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.mouse = 'a'
@@ -30,8 +30,8 @@ vim.opt.smartcase = true
 
 require'globals'
 require'autocmd'
-require'keymaps'
 require'plugins'
+require'keymaps'
 require'lsp'
 require'nvim-cmp-config'
 vim.cmd'colorscheme material'

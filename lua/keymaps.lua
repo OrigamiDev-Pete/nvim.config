@@ -6,6 +6,7 @@ local keymap = vim.keymap
 vim.g.mapleader = ' '
 
 keymap.set('n', '<c-_>', 'gcc', {})
+keymap.set('n', '<c-z>', '<Nop>', {})
 
 -- Telescope
 keymap.set('n', '<leader>ff', function() require("telescope.builtin").find_files() end)

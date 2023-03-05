@@ -48,35 +48,6 @@ require'lspconfig'.zls.setup {
 	on_attach = on_attach,
 }
 
--- require'nlua.lsp.nvim'.setup(require'lspconfig', {
--- 	on_attach = on_attach,
--- 	-- cmd = {'lua-language-server', '-E' },
--- 	globals = {
--- 		'P',
--- 	},
--- })
--- local lua_lsp_basedir = [[C:Users\Pdevr\AppData\Local\nvim-data\lsp_servers\sumneko_lua\extension\server]]
-require'lspconfig'.sumneko_lua.setup {
-	on_attach = on_attach,
-	-- cmd = {lua_lsp_basedir .. '\bin', '-E', lua_lsp_basedir ..'\\main.lsp'},
-	cmd = {'lua-language-server -E' },
-	settings = {
-		Lua = {
-			runtime = {
-				version = 'LuaJIT',
-			},
-			diagnostics = {
-				globals = {'vim'},
-			},
-			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			telemtry = {
-				enable = false,
-			},
-		},
-	},
-}
 require'lspconfig'.tsserver.setup {
 	on_attach = on_attach,
 }
